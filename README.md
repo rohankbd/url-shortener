@@ -1,5 +1,6 @@
 # Advanced URL Shortener API
 
+Deployed URL = https://url-shortener-mkx7.onrender.com
 
 ## Project Overview
 
