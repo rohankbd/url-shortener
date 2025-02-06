@@ -14,4 +14,4 @@ COPY . .
 EXPOSE 3000
 
 # Start the application
-CMD redis-server --daemonize yes && npm start
+CMD ["npm", "start"]
