@@ -4,12 +4,16 @@ import db from "../config/database.js";
 import redisClient from "../config/redis.js";
 
 class UrlService {
-
   static async createShortUrl(userId, longUrl, customAlias, topic) {
     try {
+      const BASE_URL =
+        process.env.NODE_ENV === "production"
+          ? "https://url-shortener-mkx7.onrender.com/"
+          : "http://localhost:3000";
       const id = uuidv4();
-      const shortAlias = customAlias || UrlGenerator.generateShortAlias(longUrl);
-      const shortUrl = `${process.env.BASE_URL}/${shortAlias}`;
+      const shortAlias =
+        customAlias || UrlGenerator.generateShortAlias(longUrl);
+      const shortUrl = `${BASE_URL}/${shortAlias}`;
 
       const existingUrl = await db.findOne("urls", { short_url: shortUrl });
 

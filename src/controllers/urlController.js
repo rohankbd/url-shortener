@@ -31,6 +31,10 @@ class UrlController {
   // Redirect short URL
   static async redirectUrl(req, res, next) {
     try {
+      const BASE_URL =
+        process.env.NODE_ENV === "production"
+          ? "https://url-shortener-mkx7.onrender.com/"
+          : "http://localhost:3000";
       const { alias } = req.params;
       const longUrl = await UrlService.resolveShortUrl(alias);
 
@@ -39,7 +43,7 @@ class UrlController {
       }
 
       const urlRecord = await db.findOne("urls", {
-        short_url: `${process.env.BASE_URL}/${alias}`,
+        short_url: `${BASE_URL}/${alias}`,
       });
 
       if (!urlRecord) {
