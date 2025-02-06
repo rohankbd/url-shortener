@@ -8,7 +8,7 @@ class UrlService {
     try {
       const BASE_URL =
         process.env.NODE_ENV === "production"
-          ? "https://url-shortener-mkx7.onrender.com/"
+          ? "https://url-shortener-mkx7.onrender.com"
           : "http://localhost:3000";
       const id = uuidv4();
       const shortAlias =
