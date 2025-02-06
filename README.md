@@ -162,6 +162,7 @@ npm  test
 ## API Testing Guide
 
 This guide provides instructions on how to test the APIs for the application. Follow these steps to ensure that the APIs are functioning as expected.
+Note: Import the attached Postman collection to easily get started with testing the APIs.
 
 ### Prerequisites
 
